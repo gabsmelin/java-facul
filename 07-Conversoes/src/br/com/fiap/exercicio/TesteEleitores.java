@@ -1,36 +1,33 @@
 package br.com.fiap.exercicio;
+
 import javax.swing.JOptionPane;
-import br.com.fiap.exercicio.TesteTamanho;
 
 public class TesteEleitores {
+	
 	public static void main(String[] args) {
-		//Ler dois numeros
-		String p1Nome = JOptionPane.showInputDialog("Digite seu nome");
-		double p1Peso = Double.parseDouble(JOptionPane.showInputDialog("Digite seu peso"));
-		double p1Altura =  Double.parseDouble(JOptionPane.showInputDialog("Digite sua altura"));
-		String p2Nome = JOptionPane.showInputDialog("Digite seu nome");
-		double p2Peso = Double.parseDouble(JOptionPane.showInputDialog("Digite seu peso"));
-		double p2Altura =  Double.parseDouble(JOptionPane.showInputDialog("Digite sua altura"));
+		
+		//Armazena a qtd total de eleitores obrigatórios
+		int qtd = 0;
+		
+		//Laço de repetição 
+		//(variavel de controle, condiçao de parada, incremento)
+		for (int i = 0; i < 3; i++ ) {			
+			//Ler a idade
+			int idade = Integer.parseInt(
+				JOptionPane.showInputDialog("Digite a idade"));
 			
-		if(p1Peso > p2Peso) {
-			JOptionPane.showMessageDialog(null, "O mais pesado é o " + p1Nome);
-		} else if(p2Peso > p1Peso) {
-			JOptionPane.showMessageDialog(null, "O mais pesado é o " + p2Nome);
-		} else if(p1Peso == p2Peso) {
-			JOptionPane.showMessageDialog(null, "Os dois têm o mesmo peso");
-		} else {
-			System.out.println("Erro");
-		}
+			//Classificar a classe eleitoral
+			if (idade >= 18 && idade <= 65) {
+				qtd++;
+				JOptionPane.showMessageDialog(null, "Eleitor obrigatório");
+			} else if (idade == 16 || idade == 17 || idade > 65) {
+				JOptionPane.showMessageDialog(null, "Eleitor facultativo");
+			} else {
+				JOptionPane.showMessageDialog(null, "Não eleitor");
+			}
+		}//for
 		
+		JOptionPane.showMessageDialog(null, "Total de eleitores: " + qtd);
 		
-		if(p1Altura > p2Altura) {
-			JOptionPane.showMessageDialog(null, "O mais alto é o " + p1Nome);
-		} else if(p2Altura > p1Altura) {
-			JOptionPane.showMessageDialog(null, "O mais alto é o " + p2Nome);
-		} else if(p1Altura == p2Altura) {
-			JOptionPane.showMessageDialog(null, "Os dois têm a mesma altura");
-		} else {
-			System.out.println("Erro");
-		}
-	}
-}
+	}//main	
+}//class
